@@ -22,16 +22,16 @@ print(f"Loaded {len(I)} I samples and {len(Q)} Q samples")
 
 # Step 4: Compute Power Spectrum
 spectrum = np.fft.fftshift(np.fft.fft(I + 1j * Q))
-power = 10 * np.log10(np.abs(spectrum)**2)
+power = 10 * np.log10(np.abs(spectrum) ** 2)
 print("Spectrum calculated")
 
 # Step 5: Plot the Spectrum
 try:
-    plt.plot(power)
+    plt.plot(power, linewidth=0.5)
     plt.title("Power Spectrum")
     plt.xlabel("Frequency")
     plt.ylabel("Power (dB)")
+    plt.yscale("log")
     plt.show()
 except Exception as e:
     print(f"Error displaying plot: {e}")
-
